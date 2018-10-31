@@ -15,12 +15,16 @@ const routes = [
 		route: "Login",
 		caption: "Logout",
 	},
+	{
+		route: "Test",
+		caption: "Test Container",
+	},
 ];
 
 export interface Props {
 	navigation: any,
 }
-export interface State {}
+export interface State { }
 const resetAction = NavigationActions.reset({
 	index: 0,
 	actions: [NavigationActions.navigate({ routeName: "Login" })],
