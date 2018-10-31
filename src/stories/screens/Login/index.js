@@ -17,7 +17,7 @@ class Login extends React.Component<Props, State> {
 						<Title>ReactNativeSeed.com</Title>
 						<View padder>
 							<Text style={{ color: Platform.OS === "ios" ? "#000" : "#FFF" }}>
-								Build Something Amazing TEST
+								Build Something Amazing
 							</Text>
 						</View>
 					</Body>
