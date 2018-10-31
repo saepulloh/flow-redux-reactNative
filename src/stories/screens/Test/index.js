@@ -1,32 +1,58 @@
-import * as React from "react";
-import { Container, Header, Title, Content, Text, Button, Icon, Left, Right, Body } from "native-base";
-import styles from "./styles";
-export interface Props {
-    navigation: any;
-}
-export interface State { }
-class Test extends React.Component<Props, State> {
+import React, { Component } from "react";
+import {
+    Container,
+    Header,
+    Title,
+    Button,
+    Icon,
+    Tabs,
+    Tab,
+    Text,
+    Right,
+    Left,
+    Body,
+    TabHeading
+} from "native-base";
+import TabOne from "./tabOne";
+import TabTwo from "./tabTwo";
+
+class Test extends Component {
     render() {
-        const param = this.props.navigation.state.params;
         return (
-            <Container style={styles.container}>
-                <Header>
+            <Container>
+                <Header hasTabs>
                     <Left>
                         <Button transparent onPress={() => this.props.navigation.goBack()}>
-                            <Icon name="ios-arrow-back" />
+                            <Icon name="arrow-back" />
                         </Button>
                     </Left>
-
                     <Body style={{ flex: 3 }}>
-                        <Title>{param ? param.name.item : "Blank Page"}</Title>
+                        <Title> Advanced Tabs</Title>
                     </Body>
-
                     <Right />
                 </Header>
+                <Tabs style={{ elevation: 3 }}>
+                    <Tab
+                        heading={
+                            <TabHeading>
+                                <Icon name="camera" />
+                                <Text>Camera</Text>
+                            </TabHeading>
+                        }
+                    >
+                        <TabOne />
+                    </Tab>
+                    <Tab
+                        heading={
+                            <TabHeading>
+                                <Text>No Icon</Text>
+                            </TabHeading>
+                        }
+                    >
+                        <TabTwo />
+                    </Tab>
 
-                <Content padder>
-                    <Text>{param !== undefined ? param.name.item : "Create Something Awesome . . ."}</Text>
-                </Content>
+                </Tabs>
             </Container>
         );
     }
